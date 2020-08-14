@@ -22,21 +22,21 @@ class CreateTransacoesTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedInteger('usuario_pagante_id');
-            $table->unsignedInteger('usuario_recebedor_id');
-            $table->unsignedTinyInteger('status_id')->nullable();
+            $table->unsignedInteger('payer');
+            $table->unsignedInteger('payee');
+            $table->unsignedTinyInteger('status')->nullable();
 
-            $table->index(["usuario_pagante_id"], 'fk_transacoes_usuarios1_idx');
+            $table->index(["payer"], 'fk_transacoes_usuarios1_idx');
 
-            $table->index(["status_id"], 'fk_transacoes_transacoes_status1_idx');
+            $table->index(["status"], 'fk_transacoes_transacoes_status1_idx');
 
 
-            $table->foreign('usuario_pagante_id', 'fk_transacoes_usuarios1_idx')
+            $table->foreign('payer', 'fk_transacoes_usuarios1_idx')
                 ->references('id')->on('usuarios')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('status_id', 'fk_transacoes_transacoes_status1_idx')
+            $table->foreign('status', 'fk_transacoes_transacoes_status1_idx')
                 ->references('id')->on('transacoes_status')
                 ->onDelete('no action')
                 ->onUpdate('no action');

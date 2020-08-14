@@ -24,18 +24,18 @@ class CreateUsuariosTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nome', 150)->nullable();
-            $table->string('cpf_cnpj', 14);
+            $table->string('cpfCnpj', 14);
             $table->string('email', 100);
             $table->char('senha', 40);
             $table->enum('tipo', ['usuario', 'loja'])->nullable();
 
             $table->index(["email"], 'idx_email');
 
-            $table->index(["cpf_cnpj"], 'idx_cpfcnpj');
+            $table->index(["cpfCnpj"], 'idx_cpfcnpj');
 
             $table->unique(["email"], 'uq_email_UNIQUE');
 
-            $table->unique(["cpf_cnpj"], 'uq_cpf_cnpj');
+            $table->unique(["cpfCnpj"], 'uq_cpf_cnpj');
         });
     }
 

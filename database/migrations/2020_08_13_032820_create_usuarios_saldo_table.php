@@ -22,13 +22,13 @@ class CreateUsuariosSaldoTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('usuario_id');
+            $table->increments('usuarioId');
             $table->double('saldo')->nullable();
 
-            $table->index(["usuario_id"], 'fk_usuarios_saldo_usuarios_idx');
+            $table->index(["usuarioId"], 'fk_usuarios_saldo_usuarios_idx');
 
 
-            $table->foreign('usuario_id', 'fk_usuarios_saldo_usuarios_idx')
+            $table->foreign('usuarioId', 'fk_usuarios_saldo_usuarios_idx')
                 ->references('id')->on('usuarios')
                 ->onDelete('no action')
                 ->onUpdate('no action');
