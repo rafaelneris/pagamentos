@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2.5",
         "fideloper/proxy": "^4.2",
+        "fig/http-message-util": "^1.1",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.24",
@@ -64,7 +65,6 @@
         ],
         "codequality": "./vendor/bin/phpmd ./app text phpmd",
         "codequality-stan": "./vendor/bin/phpstan analyse",
-        "cs-psr12-check": "phpcs --standard=PSR12 app/ tests/unit",
-        "cs-phpdoc-check": "phpcs ./app ./tests --standard=Squiz --sniffs=Squiz.Commenting.FunctionCommentThrowTag,Squiz.Commenting.VariableComment"
+        "cs-psr12-check": "phpcs --standard=PSR12 app/"
     }
 }
