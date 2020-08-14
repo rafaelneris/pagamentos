@@ -4,13 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransacoesTable extends Migration
+class CreateTransactionsTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'transacoes';
+    public $tableName = 'transactions';
 
     /**
      * Run the migrations.
@@ -29,17 +29,6 @@ class CreateTransacoesTable extends Migration
             $table->index(["payer"], 'fk_transacoes_usuarios1_idx');
 
             $table->index(["status"], 'fk_transacoes_transacoes_status1_idx');
-
-
-            $table->foreign('payer', 'fk_transacoes_usuarios1_idx')
-                ->references('id')->on('usuarios')
-                ->onDelete('no action')
-                ->onUpdate('no action');
-
-            $table->foreign('status', 'fk_transacoes_transacoes_status1_idx')
-                ->references('id')->on('transacoes_status')
-                ->onDelete('no action')
-                ->onUpdate('no action');
         });
     }
 

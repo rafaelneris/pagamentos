@@ -4,13 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsuariosSaldoTable extends Migration
+class CreateUsersBalanceTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'usuarios_saldo';
+    public $tableName = 'users_balance';
 
     /**
      * Run the migrations.
@@ -22,14 +22,14 @@ class CreateUsuariosSaldoTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('usuarioId');
-            $table->double('saldo')->nullable();
+            $table->increments('userId');
+            $table->double('balance')->nullable();
 
-            $table->index(["usuarioId"], 'fk_usuarios_saldo_usuarios_idx');
+            $table->index(["userId"], 'fk_usuarios_saldo_usuarios_idx');
 
 
-            $table->foreign('usuarioId', 'fk_usuarios_saldo_usuarios_idx')
-                ->references('id')->on('usuarios')
+            $table->foreign('userId', 'fk_usuarios_saldo_usuarios_idx')
+                ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

@@ -10,19 +10,19 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @author  Rafael Neris <rafaelnerisdj@gmail.com>
  */
-class Usuario extends Model
+class User extends Model
 {
     /** @var string */
-    protected $table = 'usuarios';
+    protected $table = 'users';
 
     public static $snakeAttributes = false;
 
     /** @var array */
     protected $fillable = [
-        'nome',
-        'cpf_cnpj',
+        'name',
+        'document',
         'email',
-        'senha',
-        'tipo'
+        'password',
+        'type'
     ];
 }

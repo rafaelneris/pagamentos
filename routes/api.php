@@ -18,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/user', 'Contracts\Usuarios\UsuarioControllerInterface@cadastrar');
+Route::post('/user', 'Contracts\Users\UserControllerInterface@register');
+Route::put('/deposit', 'Contracts\Users\BalanceControllerInterface@deposit');

@@ -4,17 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsuariosTable extends Migration
+class CreateTransactionsStatusTable extends Migration
 {
-
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'usuarios';
+    public $tableName = 'transactions_status';
 
     /**
      * Run the migrations.
+     * @table transacoes_status
      *
      * @return void
      */
@@ -23,19 +23,7 @@ class CreateUsuariosTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('nome', 150)->nullable();
-            $table->string('cpfCnpj', 14);
-            $table->string('email', 100);
-            $table->char('senha', 40);
-            $table->enum('tipo', ['usuario', 'loja'])->nullable();
-
-            $table->index(["email"], 'idx_email');
-
-            $table->index(["cpfCnpj"], 'idx_cpfcnpj');
-
-            $table->unique(["email"], 'uq_email_UNIQUE');
-
-            $table->unique(["cpfCnpj"], 'uq_cpf_cnpj');
+            $table->string('description', 45)->nullable();
         });
     }
 
@@ -46,6 +34,6 @@ class CreateUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('transacoes_status');
     }
 }
