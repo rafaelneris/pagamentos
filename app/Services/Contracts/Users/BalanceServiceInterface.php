@@ -24,4 +24,19 @@ interface BalanceServiceInterface
      * @return float
      */
     public function getBalanceValue(int $userId);
+
+    /**
+     * Método para verificar saldo para transferência
+     * @param int $userId
+     * @param int $transferValue
+     * @return bool
+     */
+    public function allowsTransfer(int $userId, int $transferValue): bool;
+
+    /**
+     * @param int   $userId
+     * @param float $value
+     * @return bool
+     */
+    public function withDraw(int $userId, float $value): bool;
 }

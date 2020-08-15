@@ -12,7 +12,7 @@ use App\Http\Requests\DefaultRequest;
 class DepositBalanceRequest extends DefaultRequest
 {
     /** @var array */
-    protected array $regras = [
+    protected array $rules = [
         'userId' => 'required|integer',
         'value' => 'required|numeric'
     ];

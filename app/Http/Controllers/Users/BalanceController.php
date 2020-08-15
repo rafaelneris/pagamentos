@@ -31,21 +31,15 @@ class BalanceController implements BalanceControllerInterface
 
     /**
      * @inheritDoc
+     * @throws \App\Exceptions\UserNotFoundException
      */
     public function deposit(DepositBalanceRequest $request)
     {
-        try {
             $depositData = $request->all();
             $this->balanceService->deposit($depositData);
             return response()->json(
                 ['message' => 'Deposito realizado com sucesso!'],
                 StatusCodeInterface::STATUS_OK
             );
-        } catch (UserNotFoundException $userNotFound) {
-            return response()->json(
-                ['error' => $userNotFound->getMessage()],
-                StatusCodeInterface::STATUS_NOT_FOUND
-            );
-        }
     }
 }

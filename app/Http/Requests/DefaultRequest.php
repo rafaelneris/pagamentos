@@ -25,7 +25,7 @@ abstract class DefaultRequest extends FormRequest
      *
      * @var array
      */
-    protected array $regras = [];
+    protected array $rules = [];
 
     /**
      * Variável para armazenar mensagens customizadas para cada regra
@@ -37,7 +37,7 @@ abstract class DefaultRequest extends FormRequest
      *
      * @var array
      */
-    protected array $mensagens = [];
+    protected array $messages = [];
 
     /**
      * Método para definição de regras
@@ -46,7 +46,7 @@ abstract class DefaultRequest extends FormRequest
      */
     public function rules()
     {
-        return $this->regras;
+        return $this->rules;
     }
 
     /**
@@ -56,7 +56,7 @@ abstract class DefaultRequest extends FormRequest
      */
     public function messages()
     {
-        return $this->mensagens;
+        return $this->messages;
     }
 
     /**

@@ -175,7 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\UserServiceProvider::class,
-        App\Providers\UserBalanceServiceProvider::class
+        App\Providers\UserBalanceServiceProvider::class,
+        App\Providers\TransactionServiceProvider::class,
+        App\Providers\TransferServiceProvider::class
 
     ],
 

@@ -36,8 +36,9 @@ class BalanceRepository implements BalanceRepositoryInterface
      */
     public function updateValue(int $userId, float $value)
     {
+        $queryBuilder = clone $this->queryBuilder;
         /** @var \Illuminate\Database\Eloquent\Model $balanceModel */
-        $this->queryBuilder->updateOrInsert(['userId' => $userId], ['balance' => $value]);
+        $queryBuilder->updateOrInsert(['userId' => $userId], ['balance' => $value]);
         return true;
     }
 
@@ -46,7 +47,8 @@ class BalanceRepository implements BalanceRepositoryInterface
      */
     public function getByUserId(int $userId)
     {
-        $userBalanceModel = $this->queryBuilder->find($userId) ?? null;
-        return $userBalanceModel ? $userBalanceModel->toArray() : null;
+        $queryBuilder = clone $this->queryBuilder;
+        $userBalanceModel = $queryBuilder->find($userId);
+        return !empty($userBalanceModel) ? $userBalanceModel->toArray() : null;
     }
 }

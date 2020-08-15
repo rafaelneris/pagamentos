@@ -2,7 +2,6 @@
 
 namespace App\Services\Users;
 
-use App\Exceptions\UserNotFoundException;
 use App\Repositories\Contracts\Users\BalanceRepositoryInterface;
 use App\Services\Contracts\Users\BalanceServiceInterface;
 
@@ -37,16 +36,23 @@ class BalanceService implements BalanceServiceInterface
      */
     public function deposit(array $depositData)
     {
-        $user = $this->userService->findById($depositData['userId']);
-
-        if (!isset($user)) {
-            throw new UserNotFoundException("Usuário não existe");
-        }
-
-        $currentValue = $this->getBalanceValue($depositData['userId']);
+        $userId = $depositData['userId'];
+        $this->userService->existsUser($userId);
+        $currentValue = $this->getBalanceValue($userId);
         $depositValueSum = $this->sumValuesToDeposit($currentValue, $depositData['value']);
 
-        return $this->balanceRepository->updateValue($depositData['userId'], $depositValueSum);
+        return $this->balanceRepository->updateValue($userId, $depositValueSum);
+    }
+
+    /**
+     * Método para somar valores
+     * @param float $currentValue
+     * @param float $depositValue
+     * @return float
+     */
+    private function sumValuesToDeposit(float $currentValue, float $depositValue)
+    {
+        return $currentValue + $depositValue;
     }
 
     /**
@@ -59,13 +65,20 @@ class BalanceService implements BalanceServiceInterface
     }
 
     /**
-     * Método para somar valores
-     * @param float $currentValue
-     * @param float $depositValue
-     * @return float
+     * @inheritDoc
      */
-    private function sumValuesToDeposit(float $currentValue, float $depositValue)
+    public function allowsTransfer(int $userId, int $transferValue): bool
     {
-        return $currentValue + $depositValue;
+        return ($this->getBalanceValue($userId) - $transferValue) >= 0;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function withDraw(int $userId, float $value): bool
+    {
+        $withDrawValue = $this->getBalanceValue($userId) - $value;
+
+        return $this->balanceRepository->updateValue($userId, $withDrawValue);
     }
 }

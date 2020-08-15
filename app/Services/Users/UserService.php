@@ -2,13 +2,14 @@
 
 namespace App\Services\Users;
 
+use App\Exceptions\UserNotFoundException;
 use App\Repositories\Contracts\Users\UserRepositoryInterface;
 use App\Services\Contracts\Users\UserServiceInterface;
 
 /**
  * Class UsuarioService
  *
- * @package App\Services\Usuarios
+ * @package App\Services\Users
  * @author  Rafael Neris <rafaelnerisdj@gmail.com>
  */
 class UserService implements UserServiceInterface
@@ -30,7 +31,7 @@ class UserService implements UserServiceInterface
     /**
      * @inheritDoc
      */
-    public function register(array $dados)
+    public function register(array $dados): array
     {
         $usuarioId =  $this->usuarioRepository->register($dados);
         $dados['id'] = $usuarioId;
@@ -39,12 +40,30 @@ class UserService implements UserServiceInterface
     }
 
     /**
-     * Obter usuário por Id
-     * @param integer $userId
-     * @return array|null
+     * @inheritDoc
      */
     public function findById(int $userId): ?array
     {
         return $this->usuarioRepository->findById($userId);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function isUserType(int $userId): bool
+    {
+        $user = $this->findById($userId);
+        return $user['type'] == UserServiceInterface::TYPE_USER;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function existsUser(int $userId): void
+    {
+        $user = $this->findById($userId);
+        if (!isset($user)) {
+            throw new UserNotFoundException("Usuário não existe");
+        }
     }
 }
