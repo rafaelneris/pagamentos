@@ -22,16 +22,10 @@ class CreateUsersBalanceTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('userId');
+            $table->uuid('userId');
             $table->double('balance')->nullable();
 
             $table->index(["userId"], 'fk_usuarios_saldo_usuarios_idx');
-
-
-            $table->foreign('userId', 'fk_usuarios_saldo_usuarios_idx')
-                ->references('id')->on('users')
-                ->onDelete('no action')
-                ->onUpdate('no action');
         });
     }
 

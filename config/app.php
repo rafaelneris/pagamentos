@@ -169,16 +169,16 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-        App\Providers\UserServiceProvider::class,
-        App\Providers\UserBalanceServiceProvider::class,
-        App\Providers\TransactionServiceProvider::class,
-        App\Providers\TransferServiceProvider::class
-
+        App\Application\Providers\AppServiceProvider::class,
+        App\Application\Providers\AuthServiceProvider::class,
+        // App\Application\Providers\BroadcastServiceProvider::class,
+        App\Application\Providers\EventServiceProvider::class,
+        App\Application\Providers\RouteServiceProvider::class,
+        App\Application\Providers\UserServiceProvider::class,
+        App\Application\Providers\UserBalanceServiceProvider::class,
+        App\Application\Providers\TransactionServiceProvider::class,
+        App\Application\Providers\TransferServiceProvider::class,
+        App\Application\Providers\HttpServiceProvider::class
     ],
 
     /*

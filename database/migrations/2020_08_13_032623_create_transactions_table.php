@@ -22,13 +22,12 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedInteger('payer');
-            $table->unsignedInteger('payee');
-            $table->unsignedTinyInteger('status')->nullable();
+            $table->uuid('id');
+            $table->uuid('payer');
+            $table->uuid('payee');
+            $table->float('value');
 
             $table->index(["payer"], 'fk_transacoes_usuarios1_idx');
-
-            $table->index(["status"], 'fk_transacoes_transacoes_status1_idx');
         });
     }
 
@@ -39,6 +38,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transacoes');
+        Schema::dropIfExists('transactions');
     }
 }
