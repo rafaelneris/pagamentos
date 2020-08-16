@@ -2,7 +2,7 @@
 
 namespace App\Domain\Users\Contracts\Repositories;
 
-use App\Entities\UserEntity;
+use App\Domain\Users\Entities\UserEntity;
 
 /**
  * Interface UsuarioRepositoryInterface
@@ -13,8 +13,8 @@ use App\Entities\UserEntity;
 interface UserRepositoryInterface
 {
     /**
-     * @param \App\Entities\UserEntity $userEntity
-     * @return int
+     * @param \App\Domain\Users\Entities\UserEntity $userEntity
+     * @return array
      */
     public function register(UserEntity $userEntity): array;
 

@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Application\Providers;
+namespace App\Application\Providers\Users;
 
+use App\Application\Providers\DefaultServiceProvider;
+use App\Domain\Users\Contracts\Mappers\BalanceMapperInterface;
+use App\Domain\Users\Mappers\Factories\BalanceMapperFactory;
 use App\Interfaces\Http\Controllers\Contracts\Users\BalanceControllerInterface;
 use App\Interfaces\Http\Controllers\Factories\Users\BalanceControllerFactory;
 use App\Domain\Users\Contracts\Repositories\BalanceRepositoryInterface;
@@ -17,17 +20,6 @@ use App\Domain\Users\Services\Factories\BalanceServiceFactory;
  */
 class UserBalanceServiceProvider extends DefaultServiceProvider
 {
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
     /**
      * @return void
      */
@@ -39,6 +31,7 @@ class UserBalanceServiceProvider extends DefaultServiceProvider
                 return (new BalanceServiceFactory())();
             }
         );
+        $this->bindMappers();
     }
 
     /**
@@ -63,6 +56,19 @@ class UserBalanceServiceProvider extends DefaultServiceProvider
             BalanceControllerInterface::class,
             function () {
                 return (new BalanceControllerFactory())();
+            }
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function bindMappers(): void
+    {
+        $this->app->bind(
+            BalanceMapperInterface::class,
+            function () {
+                return (new BalanceMapperFactory())();
             }
         );
     }

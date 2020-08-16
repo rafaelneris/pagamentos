@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entities;
+namespace App\Domain\Users\Entities;
 
 use App\Domain\Users\Contracts\Entities\UserEntityInterface;
 use App\Domain\Shared\ValueObjects\Document;
@@ -65,7 +65,7 @@ class UserEntity implements UserEntityInterface
     }
 
     /**
-     * @return \App\Domain\Shared\ValueObjects\Document
+     * @return string
      */
     public function getDocument(): string
     {
@@ -74,7 +74,7 @@ class UserEntity implements UserEntityInterface
 
     /**
      * @param string $document
-     * @return \App\Entities\UserEntity
+     * @return \App\Domain\Users\Entities\UserEntity
      * @throws \App\Application\Exceptions\InvalidDocumentException
      */
     public function setDocument(string $document): UserEntity
@@ -84,7 +84,7 @@ class UserEntity implements UserEntityInterface
     }
 
     /**
-     * @return \App\Domain\Shared\ValueObjects\Email
+     * @return string
      */
     public function getEmail(): string
     {
@@ -93,7 +93,7 @@ class UserEntity implements UserEntityInterface
 
     /**
      * @param string $email
-     * @return \App\Entities\UserEntity
+     * @return \App\Domain\Users\Entities\UserEntity
      * @throws \App\Application\Exceptions\InvalidEmailException
      */
     public function setEmail(string $email): UserEntity
@@ -119,5 +119,4 @@ class UserEntity implements UserEntityInterface
         $this->type = $type;
         return $this;
     }
-
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Interfaces\Http\Controllers\Contracts\Users;
 
 use App\Application\Requests\Users\DepositBalanceRequest;

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Application\Providers;
+namespace App\Application\Providers\Transactions;
 
-use App\Domain\Transactions\Contracts\Services\TransferServiceInterface;
-use App\Domain\Transactions\Services\Factories\TransferServiceFactory;
+use App\Application\Providers\DefaultServiceProvider;
+use App\Domain\Transactions\Contracts\Services\NotifierServiceInterface;
+use App\Domain\Transactions\Services\Factories\NotifierServiceFactory;
 
 /**
- * Class TransferServiceProvider
+ * Class ExternalNotifierServiceProvider
  * @package App\Application\Providers
  * @author Rafael Neris <rafaelnerisdj@gmail.com>
  */
-class TransferServiceProvider extends DefaultServiceProvider
+class ExternalNotifierServiceProvider extends DefaultServiceProvider
 {
-
     /**
      * Método para bindar controllers
      * @return void
@@ -37,10 +37,19 @@ class TransferServiceProvider extends DefaultServiceProvider
      */
     public function bindServices(): void
     {
+        $this->bindNotifier();
+    }
+
+
+    /**
+     * @return void
+     */
+    private function bindNotifier()
+    {
         $this->app->bind(
-            TransferServiceInterface::class,
+            NotifierServiceInterface::class,
             function () {
-                return (new TransferServiceFactory())();
+                return (new NotifierServiceFactory())();
             }
         );
     }

@@ -5,6 +5,7 @@ namespace App\Domain\Users\Services;
 use App\Domain\Users\Contracts\Mappers\BalanceMapperInterface;
 use App\Domain\Users\Contracts\Repositories\BalanceRepositoryInterface;
 use App\Domain\Users\Contracts\Services\BalanceServiceInterface;
+use App\Domain\Users\Contracts\Services\UserServiceInterface;
 use App\Domain\Users\Entities\BalanceEntity;
 use App\Domain\Users\Entities\DepositEntity;
 
@@ -18,7 +19,7 @@ class BalanceService implements BalanceServiceInterface
     /** @var \App\Domain\Users\Contracts\Repositories\BalanceRepositoryInterface */
     private $balanceRepository;
 
-    /** @var \App\Domain\Users\Services\UserService */
+    /** @var \App\Domain\Users\Contracts\Services\UserServiceInterface */
     private $userService;
 
     /** @var \App\Domain\Users\Contracts\Mappers\BalanceMapperInterface */
@@ -28,12 +29,12 @@ class BalanceService implements BalanceServiceInterface
     /**
      * BalanceService constructor.
      * @param \App\Domain\Users\Contracts\Repositories\BalanceRepositoryInterface $balanceRepository
-     * @param \App\Domain\Users\Services\UserService                              $userService
+     * @param \App\Domain\Users\Contracts\Services\UserServiceInterface           $userService
      * @param \App\Domain\Users\Contracts\Mappers\BalanceMapperInterface          $balanceMapper
      */
     public function __construct(
         BalanceRepositoryInterface $balanceRepository,
-        UserService $userService,
+        UserServiceInterface $userService,
         BalanceMapperInterface $balanceMapper
     ) {
         $this->balanceRepository = $balanceRepository;
@@ -50,6 +51,8 @@ class BalanceService implements BalanceServiceInterface
         $currentValue = $this->getBalanceValue($depositEntity->getUserId());
         $depositValueSum = $this->sumValuesToDeposit($currentValue, $depositEntity->getValue());
         $balanceData = ['userId' => $depositEntity->getUserId(), 'balance' => $depositValueSum];
+
+        /** @var BalanceEntity $balanceEntity */
         $balanceEntity = $this->balanceMapper->map($balanceData);
 
         $updatedBalanceEntity = $this->balanceRepository->updateValue($balanceEntity);

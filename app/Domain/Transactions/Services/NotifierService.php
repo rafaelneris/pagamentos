@@ -48,10 +48,10 @@ class NotifierService implements NotifierServiceInterface
      */
     private function validate(array $response): bool
     {
-        if (!$response['message'] === self::STATUS_NOTIFIED) {
+        if (!$response['message'] == self::STATUS_NOTIFIED) {
             throw new TransactionNotAuthorizedException();
         }
 
-        return $response['message'] === self::STATUS_NOTIFIED;
+        return true;
     }
 }

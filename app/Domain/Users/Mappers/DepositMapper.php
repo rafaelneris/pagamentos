@@ -13,10 +13,12 @@ use App\Domain\Users\Contracts\Mappers\DepositMapperInterface;
  */
 class DepositMapper extends DefaultMapper implements DepositMapperInterface
 {
+    /** @var \App\Domain\Users\Entities\DepositEntity */
+    protected $entity;
 
     /**
      * @param array $dados
-     * @return mixed
+     * @return \App\Domain\Users\Entities\DepositEntity
      */
     public function map(array $dados): DefaultEntityInterface
     {
@@ -29,14 +31,14 @@ class DepositMapper extends DefaultMapper implements DepositMapperInterface
     }
 
     /**
-     * @param \App\Domain\Shared\Contracts\Entities\DefaultEntityInterface $entity
+     * @param \App\Domain\Users\Entities\DepositEntity $entity
      * @return array
      */
     public function revert(DefaultEntityInterface $entity): array
     {
         return [
             'userId' => $entity->getUserId(),
-            'value' => $entity->getBalance()
+            'value' => $entity->$this->getValue()
         ];
     }
 }

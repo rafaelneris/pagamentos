@@ -12,7 +12,7 @@ use App\Domain\Transactions\Entities\TransactionEntity;
 interface AuthorizerServiceInterface
 {
     /** @var string */
-    const STATUS_AUTHORIZED = 'Autorizado';
+    public const STATUS_AUTHORIZED = 'Autorizado';
 
     /**
      * @param \App\Domain\Transactions\Entities\TransactionEntity $transactionEntity

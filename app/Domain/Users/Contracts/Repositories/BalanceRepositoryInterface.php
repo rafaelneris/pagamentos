@@ -14,7 +14,7 @@ interface BalanceRepositoryInterface
     /**
      * Atualizar valores
      * @param \App\Domain\Users\Entities\BalanceEntity $balanceEntity
-     * @return bool
+     * @return BalanceEntity
      */
     public function updateValue(BalanceEntity $balanceEntity): BalanceEntity;
 

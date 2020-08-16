@@ -42,11 +42,10 @@ class UserController extends Controller implements UserControllerInterface
     public function register(RegisterRequest $request): JsonResponse
     {
         $userData = $request->all();
+        /** @var \App\Domain\Users\Entities\UserEntity $userEntity */
         $userEntity = $this->userMapper->map($userData);
         $dadosInseridos = $this->usuarioService->register($userEntity);
 
         return response()->json($dadosInseridos, StatusCodeInterface::STATUS_CREATED);
     }
-
-
 }

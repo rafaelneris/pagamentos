@@ -4,7 +4,7 @@ namespace App\Domain\Users\Mappers;
 
 use App\Domain\Shared\Contracts\Entities\DefaultEntityInterface;
 use App\Domain\Users\Contracts\Mappers\UserMapperInterface;
-use App\Entities\UserEntity;
+use App\Domain\Users\Entities\UserEntity;
 
 /**
  * Class UserMapper
@@ -13,12 +13,12 @@ use App\Entities\UserEntity;
  */
 class UserMapper implements UserMapperInterface
 {
-    /** @var \App\Entities\UserEntity */
+    /** @var \App\Domain\Users\Entities\UserEntity */
     private $userEntity;
 
     /**
      * UserMapper constructor.
-     * @param \App\Entities\UserEntity $userEntity
+     * @param \App\Domain\Users\Entities\UserEntity $userEntity
      */
     public function __construct(UserEntity $userEntity)
     {
@@ -44,7 +44,8 @@ class UserMapper implements UserMapperInterface
     }
 
     /**
-     * @inheritDoc
+     * @param \App\Domain\Users\Entities\UserEntity $userEntity
+     * @return array
      */
     public function revert(DefaultEntityInterface $userEntity): array
     {

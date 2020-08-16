@@ -14,7 +14,6 @@ use App\Domain\Users\Services\BalanceService;
  */
 class BalanceServiceFactory
 {
-
     /**
      * @return \App\Domain\Users\Services\BalanceService
      */
@@ -26,5 +25,4 @@ class BalanceServiceFactory
 
         return new BalanceService($balanceRepository, $userService, $balanceEntity);
     }
-
 }

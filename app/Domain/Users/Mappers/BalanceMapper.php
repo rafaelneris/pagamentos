@@ -13,10 +13,12 @@ use App\Domain\Users\Contracts\Mappers\BalanceMapperInterface;
  */
 class BalanceMapper extends DefaultMapper implements BalanceMapperInterface
 {
+    /** @var \App\Domain\Users\Entities\BalanceEntity */
+    protected $entity;
 
     /**
      * @param array $dados
-     * @return mixed
+     * @return \App\Domain\Users\Entities\BalanceEntity
      */
     public function map(array $dados): DefaultEntityInterface
     {
@@ -29,7 +31,7 @@ class BalanceMapper extends DefaultMapper implements BalanceMapperInterface
     }
 
     /**
-     * @param \App\Domain\Shared\Contracts\Entities\DefaultEntityInterface $entity
+     * @param \App\Domain\Users\Entities\BalanceEntity $entity
      * @return array
      */
     public function revert(DefaultEntityInterface $entity): array

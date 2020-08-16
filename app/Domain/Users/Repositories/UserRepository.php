@@ -3,7 +3,7 @@
 namespace App\Domain\Users\Repositories;
 
 use App\Domain\Users\Contracts\Mappers\UserMapperInterface;
-use App\Entities\UserEntity;
+use App\Domain\Users\Entities\UserEntity;
 use App\Application\Exceptions\RegisterException;
 use App\Model\User;
 use App\Domain\Users\Contracts\Repositories\UserRepositoryInterface;

@@ -2,7 +2,7 @@
 
 namespace App\Domain\Users\Contracts\Services;
 
-use App\Entities\UserEntity;
+use App\Domain\Users\Entities\UserEntity;
 
 /**
  * Interface UsuarioServiceInterface
@@ -12,10 +12,11 @@ use App\Entities\UserEntity;
  */
 interface UserServiceInterface
 {
-    const TYPE_USER = 'user';
+    /** @var string */
+    public const TYPE_USER = 'user';
 
     /**
-     * @param \App\Entities\UserEntity $userEntity
+     * @param \App\Domain\Users\Entities\UserEntity $userEntity
      * @return array
      */
     public function register(UserEntity $userEntity): array;

@@ -7,7 +7,7 @@ parameters:
         - app
 
     # The level 8 is the highest level
-    level: 8
+    level: 7
 
     ignoreErrors:
         - '#Unsafe usage of new static#'
@@ -15,3 +15,6 @@ parameters:
     checkMissingIterableValueType: false
 
     reportUnmatchedIgnoredErrors: false
+
+    excludes_analyse:
+        - app/Domain/Shared/ValueObjects/*

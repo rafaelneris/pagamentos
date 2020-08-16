@@ -174,11 +174,17 @@ return [
         // App\Application\Providers\BroadcastServiceProvider::class,
         App\Application\Providers\EventServiceProvider::class,
         App\Application\Providers\RouteServiceProvider::class,
-        App\Application\Providers\UserServiceProvider::class,
-        App\Application\Providers\UserBalanceServiceProvider::class,
-        App\Application\Providers\TransactionServiceProvider::class,
-        App\Application\Providers\TransferServiceProvider::class,
-        App\Application\Providers\HttpServiceProvider::class
+        App\Application\Providers\HttpServiceProvider::class,
+        App\Application\Providers\Users\UserServiceProvider::class,
+        App\Application\Providers\Users\UserBalanceServiceProvider::class,
+        App\Application\Providers\Users\UserBalanceDepositServiceProvider::class,
+        App\Application\Providers\Transactions\TransactionServiceProvider::class,
+        App\Application\Providers\Transactions\TransactionValidatorServiceProvider::class,
+        App\Application\Providers\Transactions\TransferServiceProvider::class,
+        App\Application\Providers\Transactions\ExternalAuthorizerServiceProvider::class,
+        App\Application\Providers\Transactions\ExternalNotifierServiceProvider::class,
+
+
     ],
 
     /*

@@ -50,11 +50,10 @@ class AuthorizerService implements AuthorizerServiceInterface
     private function validate(array $response): bool
     {
 
-        if (!$response['message'] === self::STATUS_AUTHORIZED) {
+        if (!$response['message'] == self::STATUS_AUTHORIZED) {
             throw new TransactionNotAuthorizedException();
         }
 
-        return $response['message'] === self::STATUS_AUTHORIZED;
+        return true;
     }
-
 }

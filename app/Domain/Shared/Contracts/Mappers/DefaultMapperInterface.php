@@ -13,12 +13,12 @@ interface DefaultMapperInterface
 {
     /**
      * @param array $dados
-     * @return mixed
+     * @return \App\Domain\Shared\Contracts\Entities\DefaultEntityInterface
      */
     public function map(array $dados): DefaultEntityInterface;
 
     /**
-     * @param $entity
+     * @param DefaultEntityInterface $entity
      * @return array
      */
     public function revert(DefaultEntityInterface $entity): array;

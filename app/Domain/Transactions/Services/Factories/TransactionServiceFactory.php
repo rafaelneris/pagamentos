@@ -4,7 +4,6 @@ namespace App\Domain\Transactions\Services\Factories;
 
 use App\Domain\Transactions\Contracts\Repositories\TransactionRepositoryInterface;
 use App\Domain\Transactions\Contracts\Services\TransferServiceInterface;
-use App\Domain\Transactions\Contracts\Services\ValidatorServiceInterface;
 use App\Domain\Transactions\Services\TransactionService;
 
 /**
@@ -21,7 +20,7 @@ class TransactionServiceFactory
     {
         $transactionRepository = app(TransactionRepositoryInterface::class);
         $transferService = app(TransferServiceInterface::class);
-        $validatorService = app(ValidatorServiceInterface::class);
+        $validatorService = app(ValidatorServiceFactoryMethod::class);
 
         return new TransactionService($transactionRepository, $transferService, $validatorService);
     }

@@ -15,6 +15,6 @@ class TransactionRequest extends DefaultRequest
     protected array $rules = [
         'payer' => 'required|string',
         'payee' => 'required|string',
-        'value' => 'required|integer|min:0,01'
+        'value' => 'required|numeric|min:3'
     ];
 }

@@ -50,7 +50,7 @@ class BalanceRepository implements BalanceRepositoryInterface
             ['userId' => $balanceEntity->getUserId()],
             ['balance' => $balanceEntity->getBalance()]
         );
-
+        /** @var \App\Domain\Users\Entities\BalanceEntity $balanceEntity */
         $balanceEntity = $this->balanceMapper->map($balanceModel->toArray());
         $balanceEntity->setUserId($userId);
         return $balanceEntity;
@@ -62,8 +62,14 @@ class BalanceRepository implements BalanceRepositoryInterface
     public function getByUserId(string $userId): ?BalanceEntity
     {
         $queryBuilder = clone $this->queryBuilder;
-        $userBalanceModel = $queryBuilder->find($userId);
+        $userBalance = $queryBuilder->find($userId);
 
-        return !isset($userBalanceModel) ? null : $this->balanceMapper->map($userBalanceModel->toArray());
+        if (isset($userBalance)) {
+             /** @var BalanceEntity $balanceEntity */
+            $balanceEntity = $this->balanceMapper->map($userBalance->toArray());
+            return $balanceEntity;
+        }
+
+        return null;
     }
 }

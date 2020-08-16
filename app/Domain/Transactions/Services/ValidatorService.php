@@ -76,10 +76,12 @@ class ValidatorService implements ValidatorServiceInterface
      */
     public function validateBalance(): void
     {
-        if (!$this->balanceService->allowsTransfer(
-            $this->transactionEntity->getPayer(),
-            $this->transactionEntity->getValue()
-        )) {
+        if (
+            !$this->balanceService->allowsTransfer(
+                $this->transactionEntity->getPayer(),
+                $this->transactionEntity->getValue()
+            )
+        ) {
             throw new NoFundsException("Não há saldo para se realizar a transferência.");
         }
     }

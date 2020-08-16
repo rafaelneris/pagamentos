@@ -52,5 +52,4 @@ class BalanceEntity implements DefaultEntityInterface
         $this->balance = $balance;
         return $this;
     }
-
 }

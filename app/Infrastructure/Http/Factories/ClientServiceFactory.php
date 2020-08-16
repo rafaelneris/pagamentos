@@ -12,7 +12,10 @@ use GuzzleHttp\Client;
  */
 class ClientServiceFactory
 {
-    public function __invoke()
+    /**
+     * @return \App\Infrastructure\Http\ClientService
+     */
+    public function __invoke(): ClientService
     {
         $guzzleClient = app(Client::class);
         return new ClientService($guzzleClient);

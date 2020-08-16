@@ -41,6 +41,7 @@ class TransactionController implements TransactionControllerInterface
      */
     public function transfer(TransactionRequest $transactionRequest): JsonResponse
     {
+        /** @var array $transactionData */
         $transactionData = $transactionRequest->post();
 
         /** @var \App\Domain\Transactions\Entities\TransactionEntity $transactionEntity */

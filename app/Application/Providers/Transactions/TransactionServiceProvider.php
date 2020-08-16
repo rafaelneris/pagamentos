@@ -1,20 +1,15 @@
 <?php
 
-namespace App\Application\Providers;
+namespace App\Application\Providers\Transactions;
 
+use App\Application\Providers\DefaultServiceProvider;
 use App\Domain\Transactions\Contracts\Mappers\TransactionMapperInterface;
-use App\Domain\Transactions\Contracts\Services\ValidatorServiceInterface;
 use App\Domain\Transactions\Mappers\Factories\TransactionMapperFactory;
-use App\Domain\Transactions\Services\Factories\ValidatorServiceFactoryMethod;
 use App\Interfaces\Http\Controllers\Contracts\Transactions\TransactionControllerInterface;
 use App\Interfaces\Http\Controllers\Factories\Transactions\TransactionControllerFactory;
 use App\Domain\Transactions\Contracts\Repositories\TransactionRepositoryInterface;
 use App\Domain\Transactions\Repositories\Factories\TransactionRepositoryFactory;
-use App\Domain\Transactions\Contracts\Services\NotifierServiceInterface;
-use App\Domain\Transactions\Contracts\Services\AuthorizerServiceInterface;
 use App\Domain\Transactions\Contracts\Services\TransactionServiceInterface;
-use App\Domain\Transactions\Services\Factories\AuthorizerServiceFactory;
-use App\Domain\Transactions\Services\Factories\NotifierServiceFactory;
 use App\Domain\Transactions\Services\Factories\TransactionServiceFactory;
 
 /**
@@ -66,38 +61,9 @@ class TransactionServiceProvider extends DefaultServiceProvider
             }
         );
 
-        $this->bindAuthorizer();
-        $this->bindNotifier();
         $this->bindMappers();
-        $this->bindValidator();
     }
 
-
-    /**
-     * @return void
-     */
-    private function bindAuthorizer()
-    {
-        $this->app->bind(
-            AuthorizerServiceInterface::class,
-            function () {
-                return (new AuthorizerServiceFactory())();
-            }
-        );
-    }
-
-    /**
-     * @return void
-     */
-    private function bindNotifier()
-    {
-        $this->app->bind(
-            NotifierServiceInterface::class,
-            function () {
-                return (new NotifierServiceFactory())();
-            }
-        );
-    }
 
     /**
      * @return void
@@ -108,19 +74,6 @@ class TransactionServiceProvider extends DefaultServiceProvider
             TransactionMapperInterface::class,
             function () {
                 return (new TransactionMapperFactory())();
-            }
-        );
-    }
-
-    /**
-     * @return void
-     */
-    private function bindValidator()
-    {
-        $this->app->bind(
-            ValidatorServiceInterface::class,
-            function () {
-                return (new ValidatorServiceFactoryMethod())();
             }
         );
     }

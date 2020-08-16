@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Application\Providers;
+namespace App\Application\Providers\Users;
 
-use App\Domain\Users\Mappers\Factories\BalanceMapperFactory;
-use App\Domain\Users\Mappers\Factories\DepositMapperFactory;
+use App\Application\Providers\DefaultServiceProvider;
 use App\Interfaces\Http\Controllers\Contracts\Users\UserControllerInterface;
 use App\Interfaces\Http\Controllers\Users\UserControllerFactory;
 use App\Domain\Users\Mappers\Factories\UserMapperFactory;
@@ -21,16 +20,6 @@ use App\Domain\Users\Services\Factories\UserServiceFactory;
  */
 class UserServiceProvider extends DefaultServiceProvider
 {
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
     /**
      * @return void
      */
@@ -77,20 +66,6 @@ class UserServiceProvider extends DefaultServiceProvider
             Mappers\UserMapperInterface::class,
             function () {
                 return (new UserMapperFactory())();
-            }
-        );
-
-        $this->app->bind(
-            Mappers\BalanceMapperInterface::class,
-            function () {
-                return (new BalanceMapperFactory())();
-            }
-        );
-
-        $this->app->bind(
-            Mappers\DepositMapperInterface::class,
-            function () {
-                return (new DepositMapperFactory())();
             }
         );
     }

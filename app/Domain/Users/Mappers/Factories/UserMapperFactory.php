@@ -3,7 +3,7 @@
 namespace App\Domain\Users\Mappers\Factories;
 
 use App\Domain\Users\Mappers\UserMapper;
-use App\Entities\UserEntity;
+use App\Domain\Users\Entities\UserEntity;
 
 /**
  * Class UserMapperFactory
@@ -12,7 +12,7 @@ use App\Entities\UserEntity;
  */
 class UserMapperFactory
 {
-    public function __invoke()
+    public function __invoke(): UserMapper
     {
         $userEntity = app(UserEntity::class);
         return new UserMapper($userEntity);

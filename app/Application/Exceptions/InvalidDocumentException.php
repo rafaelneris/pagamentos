@@ -4,6 +4,7 @@ namespace App\Application\Exceptions;
 
 use Fig\Http\Message\StatusCodeInterface;
 use Exception;
+use Illuminate\Http\JsonResponse;
 
 /**
  * Class InvalidDocumentException
@@ -15,7 +16,7 @@ class InvalidDocumentException extends Exception
     /**
      * @inheritDoc
      */
-    public function render()
+    public function render(): JsonResponse
     {
         return response()->json(
             ['error' => "Documento Inválido"],

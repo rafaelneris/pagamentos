@@ -9,7 +9,6 @@ use App\Domain\Transactions\Contracts\Services\TransferServiceInterface;
 use App\Domain\Transactions\Contracts\Services\ValidatorFactoryMethodInterface;
 use App\Domain\Transactions\Entities\TransactionEntity;
 use Illuminate\Support\Facades\DB;
-use Exception;
 
 /**
  * Class TransactionService
@@ -26,22 +25,22 @@ class TransactionService implements TransactionServiceInterface
     /**
      * @var \App\Domain\Transactions\Contracts\Services\ValidatorFactoryMethodInterface
      */
-    private ValidatorFactoryMethodInterface $validatorServiceFactoryMethod;
+    private ValidatorFactoryMethodInterface $validatorFactoryMethod;
 
     /**
      * TransactionService constructor.
      * @param \App\Domain\Transactions\Contracts\Repositories\TransactionRepositoryInterface $transactionRepository
      * @param \App\Domain\Transactions\Contracts\Services\TransferServiceInterface           $transferService
-     * @param \App\Domain\Transactions\Contracts\Services\ValidatorFactoryMethodInterface $validatorServiceFactoryMethod
+     * @param \App\Domain\Transactions\Contracts\Services\ValidatorFactoryMethodInterface $validatorFactoryMethod
      */
     public function __construct(
         TransactionRepositoryInterface $transactionRepository,
         TransferServiceInterface $transferService,
-        ValidatorFactoryMethodInterface $validatorServiceFactoryMethod
+        ValidatorFactoryMethodInterface $validatorFactoryMethod
     ) {
         $this->transactionRepository = $transactionRepository;
         $this->transferService = $transferService;
-        $this->validatorServiceFactoryMethod = $validatorServiceFactoryMethod;
+        $this->validatorFactoryMethod = $validatorFactoryMethod;
     }
 
     /**
@@ -54,20 +53,31 @@ class TransactionService implements TransactionServiceInterface
      */
     public function transfer(TransactionEntity $transactionEntity): TransactionEntity
     {
-        $validatorService = $this->validatorServiceFactoryMethod->factory($transactionEntity);
-        $validatorService->validateActors();
-        $validatorService->validatePayerEqualsPayee();
-        $validatorService->validatePayer();
-        $validatorService->validateBalance();
+        $this->validateTransaction($transactionEntity);
         try {
             DB::beginTransaction();
             $transactionEntity = $this->transactionRepository->registerTransaction($transactionEntity);
             $this->transferService->transfer($transactionEntity);
             DB::commit();
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             DB::rollBack();
             throw new TransactionErrorException();
         }
         return $transactionEntity;
+    }
+
+    /**
+     * @param \App\Domain\Transactions\Entities\TransactionEntity $transactionEntity
+     * @throws \App\Application\Exceptions\NoFundsException
+     * @throws \App\Application\Exceptions\StoreTransferException
+     * @throws \App\Application\Exceptions\UserNotFoundException
+     */
+    private function validateTransaction(TransactionEntity $transactionEntity): void
+    {
+        $validatorService = $this->validatorFactoryMethod->factory($transactionEntity);
+        $validatorService->validateActors();
+        $validatorService->validatePayerEqualsPayee();
+        $validatorService->validatePayer();
+        $validatorService->validateBalance();
     }
 }

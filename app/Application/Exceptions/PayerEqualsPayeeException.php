@@ -4,6 +4,7 @@ namespace App\Application\Exceptions;
 
 use Exception;
 use Fig\Http\Message\StatusCodeInterface;
+use Illuminate\Http\JsonResponse;
 
 /**
  * Class PayerEqualsPayeeException
@@ -12,7 +13,10 @@ use Fig\Http\Message\StatusCodeInterface;
  */
 class PayerEqualsPayeeException extends Exception
 {
-    public function render()
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function render(): JsonResponse
     {
         return response()->json(
             ['error' => "Não é possível transferir dinheiro para você mesmo! Realize um depósito."],

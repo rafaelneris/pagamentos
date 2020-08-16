@@ -2,9 +2,9 @@
 
 namespace App\Application\Exceptions;
 
-
 use Exception;
 use Fig\Http\Message\StatusCodeInterface;
+use Illuminate\Http\JsonResponse;
 
 /**
  * Class StoreTransferException
@@ -16,7 +16,7 @@ class NoFundsException extends Exception
     /**
      * @inheritDoc
      */
-    public function render()
+    public function render(): JsonResponse
     {
         return response()->json(
             ['error' => $this->getMessage()],

@@ -39,7 +39,7 @@ interface BalanceServiceInterface
     /**
      * @param string   $userId
      * @param float $value
-     * @return bool
+     * @return BalanceEntity
      */
     public function withDraw(string $userId, float $value): BalanceEntity;
 }

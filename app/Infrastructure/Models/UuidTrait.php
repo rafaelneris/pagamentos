@@ -11,7 +11,10 @@ use Ramsey\Uuid\Uuid;
  */
 trait UuidTrait
 {
-    public static function bootUuid()
+    /**
+     * @return void
+     */
+    public static function bootUuid(): void
     {
         static::creating(function ($model) {
             $model->uuid = Uuid::uuid4();

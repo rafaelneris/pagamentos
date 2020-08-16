@@ -11,7 +11,8 @@ use App\Domain\Transactions\Entities\TransactionEntity;
  */
 interface NotifierServiceInterface
 {
-    const STATUS_NOTIFIED = 'Enviado';
+    /** @var string */
+    public const STATUS_NOTIFIED = 'Enviado';
 
     /**
      * @param \App\Domain\Transactions\Entities\TransactionEntity $transactionEntity

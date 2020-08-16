@@ -14,6 +14,6 @@ class DepositBalanceRequest extends DefaultRequest
     /** @var array */
     protected array $rules = [
         'userId' => 'required|string',
-        'value' => 'required|numeric'
+        'value' => 'required|numeric|min:1'
     ];
 }

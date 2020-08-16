@@ -2,7 +2,7 @@
 
 namespace App\Domain\Users\Services;
 
-use App\Entities\UserEntity;
+use App\Domain\Users\Entities\UserEntity;
 use App\Application\Exceptions\UserNotFoundException;
 use App\Domain\Users\Contracts\Repositories\UserRepositoryInterface;
 use App\Domain\Users\Contracts\Services\UserServiceInterface;

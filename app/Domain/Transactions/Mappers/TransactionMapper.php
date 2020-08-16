@@ -18,11 +18,10 @@ class TransactionMapper extends DefaultMapper implements TransactionMapperInterf
 
     /**
      * @param array $dados
-     * @return mixed
+     * @return \App\Domain\Transactions\Entities\TransactionEntity
      */
     public function map(array $dados): DefaultEntityInterface
     {
-        /** @var \App\Domain\Transactions\Entities\TransactionEntity $entity */
         $transactionEntity = clone $this->entity;
         isset($dados['id']) ? $transactionEntity->setId($dados['id']) : $transactionEntity->setId(null);
         $transactionEntity
@@ -34,7 +33,7 @@ class TransactionMapper extends DefaultMapper implements TransactionMapperInterf
     }
 
     /**
-     * @param $entity
+     * @param \App\Domain\Transactions\Entities\TransactionEntity $entity
      * @return array
      */
     public function revert(DefaultEntityInterface $entity): array
