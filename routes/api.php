@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/user', 'Contracts\Users\UserControllerInterface@register');
 Route::put('/deposit', 'Contracts\Users\BalanceControllerInterface@deposit');
 Route::post('/transaction', 'Contracts\Transactions\TransactionControllerInterface@transfer');
+//Route::get('/user/{uuid}/balance', 'Contracts\Users\BalanceControllerInterface@getBalance');

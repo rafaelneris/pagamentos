@@ -2,7 +2,7 @@
 
 namespace App\Domain\Transactions\Services;
 
-use App\Application\Exceptions\TransactionNotAuthorizedException;
+use App\Application\Exceptions\TransactionsEmailNotSendedException;
 use App\Domain\Transactions\Entities\TransactionEntity;
 use App\Infrastructure\Contracts\Http\ClientServiceInterface;
 use App\Domain\Transactions\Contracts\Services\NotifierServiceInterface;
@@ -32,8 +32,9 @@ class NotifierService implements NotifierServiceInterface
     }
 
     /**
-     * @inheritDoc
-     * @throws \App\Application\Exceptions\TransactionNotAuthorizedException
+     * @param \App\Domain\Transactions\Entities\TransactionEntity $transactionEntity
+     * @return bool
+     * @throws \App\Application\Exceptions\TransactionsEmailNotSendedException
      */
     public function notify(TransactionEntity $transactionEntity): bool
     {
@@ -44,12 +45,12 @@ class NotifierService implements NotifierServiceInterface
     /**
      * @param array $response
      * @return bool
-     * @throws \App\Application\Exceptions\TransactionNotAuthorizedException
+     * @throws \App\Application\Exceptions\TransactionsEmailNotSendedException
      */
     private function validate(array $response): bool
     {
-        if (!$response['message'] == self::STATUS_NOTIFIED) {
-            throw new TransactionNotAuthorizedException();
+        if (!($response['message'] == self::STATUS_NOTIFIED)) {
+            throw new TransactionsEmailNotSendedException();
         }
 
         return true;

@@ -63,7 +63,6 @@ class BalanceRepository implements BalanceRepositoryInterface
     {
         $queryBuilder = clone $this->queryBuilder;
         $userBalance = $queryBuilder->find($userId);
-
         if (isset($userBalance)) {
              /** @var BalanceEntity $balanceEntity */
             $balanceEntity = $this->balanceMapper->map($userBalance->toArray());

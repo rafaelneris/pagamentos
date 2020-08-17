@@ -3,6 +3,7 @@
 namespace App\Domain\Transactions\Services;
 
 use App\Application\Exceptions\NoFundsException;
+use App\Application\Exceptions\PayerEqualsPayeeException;
 use App\Application\Exceptions\StoreTransferException;
 use App\Domain\Transactions\Contracts\Services\ValidatorServiceInterface;
 use App\Domain\Transactions\Entities\TransactionEntity;
@@ -67,7 +68,7 @@ class ValidatorService implements ValidatorServiceInterface
     public function validatePayerEqualsPayee(): void
     {
         if ($this->transactionEntity->getPayer() === $this->transactionEntity->getPayee()) {
-            throw new StoreTransferException("Lojistas não podem realizar transferências.");
+            throw new PayerEqualsPayeeException("Lojistas não podem realizar transferências.");
         }
     }
 

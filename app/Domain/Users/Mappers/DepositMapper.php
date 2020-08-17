@@ -38,7 +38,7 @@ class DepositMapper extends DefaultMapper implements DepositMapperInterface
     {
         return [
             'userId' => $entity->getUserId(),
-            'value' => $entity->$this->getValue()
+            'value' => $entity->getValue()
         ];
     }
 }

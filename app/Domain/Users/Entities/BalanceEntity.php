@@ -2,14 +2,14 @@
 
 namespace App\Domain\Users\Entities;
 
-use App\Domain\Shared\Contracts\Entities\DefaultEntityInterface;
+use App\Domain\Users\Contracts\Entities\BalanceEntityInterface;
 
 /**
- * Class BalanceEntity
+ * Class BalanceEntityInterface
  * @package App\Domain\Users\Entities
  * @author Rafael Neris <rafaelnerisdj@gmail.com>
  */
-class BalanceEntity implements DefaultEntityInterface
+class BalanceEntity implements BalanceEntityInterface
 {
     /** @var string|null */
     private ?string $userId = null;

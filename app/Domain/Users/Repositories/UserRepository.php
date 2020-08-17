@@ -21,7 +21,7 @@ class UserRepository implements UserRepositoryInterface
     private User $usuarioModel;
 
     /** @var \Illuminate\Database\Eloquent\Builder */
-    private Builder $queryBuilder;
+    private $queryBuilder;
 
     /** @var \App\Domain\Users\Contracts\Mappers\UserMapperInterface */
     private $userMapper;
@@ -58,6 +58,7 @@ class UserRepository implements UserRepositoryInterface
     public function findById(string $userId): ?array
     {
         $queryBuilder = clone $this->queryBuilder;
+
         $userModel = $queryBuilder->find($userId);
 
         return $userModel ? $userModel->toArray() : null;

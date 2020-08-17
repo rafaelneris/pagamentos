@@ -8,6 +8,7 @@ use App\Domain\Transactions\Contracts\Services\TransferServiceInterface;
 use App\Domain\Transactions\Entities\TransactionEntity;
 use App\Domain\Users\Contracts\Mappers\DepositMapperInterface;
 use App\Domain\Users\Contracts\Services\BalanceServiceInterface;
+use App\Domain\Users\Entities\DepositEntity;
 
 /**
  * Class TransferService
@@ -64,7 +65,7 @@ class TransferService implements TransferServiceInterface
      * @param \App\Domain\Transactions\Entities\TransactionEntity $transactionEntity
      * @return \App\Domain\Shared\Contracts\Entities\DefaultEntityInterface|mixed
      */
-    private function makeDepositEntity(TransactionEntity $transactionEntity)
+    private function makeDepositEntity(TransactionEntity $transactionEntity): DepositEntity
     {
         $deposit = [
             'userId' => $transactionEntity->getPayee(),
