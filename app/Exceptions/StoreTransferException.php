@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Fig\Http\Message\StatusCodeInterface;
 use Illuminate\Http\JsonResponse;
 
 /**
@@ -17,6 +18,9 @@ class StoreTransferException extends Exception
      */
     public function render(): JsonResponse
     {
-        return response()->json(['error' => $this->getMessage()]);
+        return response()->json(
+            ['error' => $this->getMessage()],
+            StatusCodeInterface::STATUS_UNPROCESSABLE_ENTITY
+        );
     }
 }

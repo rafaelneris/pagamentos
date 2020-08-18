@@ -16,7 +16,7 @@ class UserNotFoundException extends Exception
     public function render(): JsonResponse
     {
         return response()->json(
-            ['error' => "Usuário {$this->getMessage()} não existe"],
+            ['error' => "User not found"],
             StatusCodeInterface::STATUS_NOT_FOUND
         );
     }

@@ -19,7 +19,7 @@ class TransactionNotAuthorizedException extends Exception
     public function render(): JsonResponse
     {
         return response()->json(
-            ['error' => 'Sua transação não foi autorizada!'],
+            ['error' => 'Transaction not authorized'],
             StatusCodeInterface::STATUS_UNPROCESSABLE_ENTITY
         );
     }

@@ -19,7 +19,7 @@ class InvalidDocumentException extends Exception
     public function render(): JsonResponse
     {
         return response()->json(
-            ['error' => "Documento Inválido"],
+            ['error' => "Invalid Document"],
             StatusCodeInterface::STATUS_UNPROCESSABLE_ENTITY
         );
     }

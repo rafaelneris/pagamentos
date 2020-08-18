@@ -19,7 +19,7 @@ class PayerEqualsPayeeException extends Exception
     public function render(): JsonResponse
     {
         return response()->json(
-            ['error' => "Não é possível transferir dinheiro para você mesmo! Realize um depósito."],
+            ['error' => "Não é possível transferir dinheiro para você mesmo!"],
             StatusCodeInterface::STATUS_BAD_REQUEST
         );
     }

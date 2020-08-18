@@ -19,7 +19,7 @@ class NoFundsException extends Exception
     public function render(): JsonResponse
     {
         return response()->json(
-            ['error' => $this->getMessage()],
+            ['error' => 'No funds to transfer'],
             StatusCodeInterface::STATUS_UNPROCESSABLE_ENTITY
         );
     }

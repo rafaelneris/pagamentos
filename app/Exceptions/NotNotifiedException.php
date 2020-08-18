@@ -13,7 +13,7 @@ class NotNotifiedException extends Exception
     public function render()
     {
         return response()->json(
-            ['error' => $this->getMessage()],
+            ['error' => "Error when sending user notification"],
             StatusCodeInterface::STATUS_UNPROCESSABLE_ENTITY
         );
     }

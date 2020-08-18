@@ -14,7 +14,7 @@ class InvalidEmailException extends Exception
     public function render(): JsonResponse
     {
         return response()->json(
-            ['error' => "Email inválido"],
+            ['error' => "Invalid e-mail"],
             StatusCodeInterface::STATUS_UNPROCESSABLE_ENTITY
         );
     }
