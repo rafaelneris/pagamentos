@@ -14,13 +14,13 @@
 5. `php artisan migrate` Para realizar a criação do banco de dados
 5. Seu projeto estará pronto para ser executado! (:
 
-#### Conceitos utilizados no projeto:
+### Conceitos utilizados no projeto:
 * Design Patterns (Factory, Factory Method)
 * Repository Pattern
 * SOLID
 * ValueObjects
 
-## Scripts
+### Scripts
 *Code Style:*
 * PSR-12: `composer cs-psr12-check`
 
