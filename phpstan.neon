@@ -17,4 +17,4 @@ parameters:
     reportUnmatchedIgnoredErrors: false
 
     excludes_analyse:
-        - app/Domain/Shared/ValueObjects/*
+        - app/ValueObjects/*

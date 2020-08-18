@@ -5,6 +5,7 @@ namespace App\Services\Transactions;
 use App\Contracts\Transactions\Services\NotifierServiceInterface;
 use App\Contracts\Transactions\Services\AuthorizerServiceInterface;
 use App\Contracts\Transactions\Services\TransferServiceInterface;
+use App\Entities\DefaultEntityInterface;
 use App\Entities\Transactions\TransactionEntity;
 use App\Contracts\Users\Mappers\DepositMapperInterface;
 use App\Contracts\Users\Services\BalanceServiceInterface;
@@ -55,6 +56,7 @@ class TransferService implements TransferServiceInterface
     public function transfer(TransactionEntity $transactionEntity): void
     {
         $this->balanceService->withDraw($transactionEntity->getPayer(), $transactionEntity->getValue());
+        /** @var DepositEntity $depositEntity */
         $depositEntity = $this->makeDepositEntity($transactionEntity);
         $this->balanceService->deposit($depositEntity);
         $this->authorizerService->authorize($transactionEntity);
@@ -63,9 +65,9 @@ class TransferService implements TransferServiceInterface
 
     /**
      * @param \App\Entities\Transactions\TransactionEntity $transactionEntity
-     * @return \App\Entities\DefaultEntityInterface|mixed
+     * @return \App\Entities\DefaultEntityInterface
      */
-    private function makeDepositEntity(TransactionEntity $transactionEntity): DepositEntity
+    private function makeDepositEntity(TransactionEntity $transactionEntity): DefaultEntityInterface
     {
         $deposit = [
             'userId' => $transactionEntity->getPayee(),

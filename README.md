@@ -20,6 +20,15 @@
 * SOLID
 * ValueObjects
 
+## Scripts
+*Code Style:*
+* PSR-12: `composer cs-psr12-check`
+
+*Code Quality* 
+* MassDetector: `composer codequality`
+* Larastan: `composer codequality-stan`
+
+
 #### Propostas de melhorias
 * Criar abstração para Mappers (A idéia seria utilizar o Laminas Hydrator para tal.)
 * Utilização de filas para processamento das requisições de transação.
