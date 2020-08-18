@@ -72,7 +72,6 @@ class UserMapperTest extends \PHPUnit_Framework_TestCase
             ->method('setType')->willReturn($userEntity);
         $this->userEntity
             ->method('setName')->willReturn($userEntity);
-
     }
 
     private function makeEntity()

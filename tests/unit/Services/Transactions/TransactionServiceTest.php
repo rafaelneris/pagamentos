@@ -14,7 +14,7 @@ use Tests\TestCase;
 /**
  * Class TransactionServiceTest
  * @package Tests\Services\Transactions
- * @author Rafael Neris <rafaelnerisdj@gmail.com>
+ * @author  Rafael Neris <rafaelnerisdj@gmail.com>
  */
 class TransactionServiceTest extends TestCase
 {
@@ -37,7 +37,8 @@ class TransactionServiceTest extends TestCase
         $transactionService = new TransactionService(
             $mockObjects['transactionRepositoryMock'],
             $mockObjects['transferServiceMock'],
-            $mockObjects['validatorMethodFactory']);
+            $mockObjects['validatorMethodFactory']
+        );
         $returnValue = $transactionService->transfer($entity);
 
         $this->assertEquals($entity, $returnValue);
@@ -52,7 +53,8 @@ class TransactionServiceTest extends TestCase
         $transactionService = new TransactionService(
             $mockObjects['transactionRepositoryMock'],
             $mockObjects['transferServiceMock'],
-            $mockObjects['validatorMethodFactory']);
+            $mockObjects['validatorMethodFactory']
+        );
         $returnValue = $transactionService->transfer($entity);
 
         $this->assertEquals($entity, $returnValue);
@@ -96,7 +98,7 @@ class TransactionServiceTest extends TestCase
         $transactionRepositoryMock->method('registerTransaction')->willReturn($entity);
         $transferServiceMock->method('transfer')->willReturnSelf();
 
-        $validatorService->method('validateActors')->willThrowException(new UserNotFoundException);
+        $validatorService->method('validateActors')->willThrowException(new UserNotFoundException());
 
         $validatorServiceFactoryMock->method('factory')->willReturn($validatorService);
 

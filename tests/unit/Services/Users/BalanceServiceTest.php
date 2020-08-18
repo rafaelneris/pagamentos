@@ -113,7 +113,6 @@ class BalanceServiceTest extends TestCase
         $retorno = $balanceService->withDraw('0abcdd94-5cfe-49f2-b64a-16e4e90eb585', 100);
 
         $this->assertInstanceOf(BalanceEntity::class, $retorno);
-
     }
 
     public function testDeposit()

@@ -1,5 +1,8 @@
 ## Sistema de pagamentos
 
+#### Documentação
+[Clique aqui](api.md)
+
 #### Dependências
  * Docker
 
@@ -21,3 +24,4 @@
 * Criar abstração para Mappers (A idéia seria utilizar o Laminas Hydrator para tal.)
 * Utilização de filas para processamento das requisições de transação.
 * Trabalhar nos valores de moeda (Talvez, implementar ValueObjects)
+* Finalizar cobertura de testes :(

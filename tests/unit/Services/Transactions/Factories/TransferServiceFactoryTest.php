@@ -13,5 +13,4 @@ class TransferServiceFactoryTest extends TestCase
         $transferService = (new TransferServiceFactory())();
         $this->assertInstanceOf(TransferServiceInterface::class, $transferService);
     }
-
 }

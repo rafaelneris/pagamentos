@@ -16,7 +16,6 @@ use Tests\TestCase;
  */
 class ValidatorServiceFactoryMethodTest extends TestCase
 {
-
     public function testFactory()
     {
         $validatorServiceFactoryMethod = (new ValidatorServiceFactoryMethod())();
@@ -29,6 +28,5 @@ class ValidatorServiceFactoryMethodTest extends TestCase
         $validatorServiceFactoryMethod = (new ValidatorServiceFactoryMethod())();
         $validatorService = $validatorServiceFactoryMethod->factory($entityMock);
         $this->assertInstanceOf(ValidatorServiceInterface::class, $validatorService);
-
     }
 }

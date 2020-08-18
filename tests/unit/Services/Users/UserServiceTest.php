@@ -103,13 +103,16 @@ class UserServiceTest extends TestCase
         );
         $userService = new UserService($userRepository);
         $dataReturn = $userService->findById('0abcdd94-5cfe-49f2-b64a-16e4e90eb585');
-        $this->assertEquals([
-                                'id' => '0abcdd94-5cfe-49f2-b64a-16e4e90eb585',
-                                'name' => 'Teste ABC',
-                                'document' => '784.882.590-69',
-                                'type' => 'user',
-                                'email' => 'joao@teste.com.br'
-                            ], $dataReturn );
+        $this->assertEquals(
+            [
+                'id' => '0abcdd94-5cfe-49f2-b64a-16e4e90eb585',
+                'name' => 'Teste ABC',
+                'document' => '784.882.590-69',
+                'type' => 'user',
+                'email' => 'joao@teste.com.br'
+            ],
+            $dataReturn
+        );
     }
 
     public function testIsUserType()

@@ -71,6 +71,6 @@
         ],
         "codequality": "./vendor/bin/phpmd ./app text phpmd",
         "codequality-stan": "./vendor/bin/phpstan analyse",
-        "cs-psr12-check": "phpcs --standard=PSR12 app/"
+        "cs-psr12-check": "phpcs --standard=PSR12 app/ tests/unit/"
     }
 }

@@ -31,7 +31,6 @@ class TransactionRepositoryTest extends \PHPUnit_Framework_TestCase
     {
         parent::setUp();
         $this->setUpDependencies();
-
     }
 
     /**
