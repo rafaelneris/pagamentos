@@ -11,7 +11,7 @@
 2. cd .docker
 3. Execute: `docker-compose up -d`
 4. Configure o .env
-5. `php artisan migrate` Para realizar a criação do banco de dados
+5. `php artisan migrate`
 5. Seu projeto estará pronto para ser executado! (:
 
 ### Conceitos utilizados no projeto:
