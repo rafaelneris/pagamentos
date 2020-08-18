@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Domain\Transactions\Mappers\Factories;
 
-use App\Domain\Transactions\Contracts\Mappers\TransactionMapperInterface;
-use App\Domain\Transactions\Mappers\Factories\TransactionMapperFactory;
+use App\Contracts\Transactions\Mappers\TransactionMapperInterface;
+use App\Mappers\Transactions\Factories\TransactionMapperFactory;
 use Tests\TestCase;
 
 /**

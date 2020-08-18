@@ -2,7 +2,7 @@
 
 namespace Tests\Domain\Users\Services\Factories;
 
-use App\Domain\Users\Services\Factories\BalanceServiceFactory;
+use App\Services\Users\Factories\BalanceServiceFactory;
 
 class BalanceServiceFactoryTest extends \PHPUnit_Framework_TestCase
 {

@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Users\Repositories\Factories;
 
-use App\Domain\Users\Contracts\Repositories\BalanceRepositoryInterface;
-use App\Domain\Users\Repositories\Factories\BalanceRepositoryFactory;
+use App\Contracts\Users\Repositories\BalanceRepositoryInterface;
+use App\Repositories\Users\Factories\BalanceRepositoryFactory;
 use Tests\TestCase;
 
 /**

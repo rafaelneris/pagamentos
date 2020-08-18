@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Users\Mappers;
 
-use App\Domain\Users\Entities\BalanceEntity;
-use App\Domain\Users\Mappers\BalanceMapper;
+use App\Entities\Users\BalanceEntity;
+use App\Mappers\Users\BalanceMapper;
 
 class BalanceMapperTest extends \PHPUnit_Framework_TestCase
 {

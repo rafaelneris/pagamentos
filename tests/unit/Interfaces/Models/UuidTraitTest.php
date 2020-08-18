@@ -2,7 +2,7 @@
 
 namespace Tests\Interfaces\Models;
 
-use App\Infrastructure\Models\UuidTrait;
+use App\Model\UuidTrait;
 use Illuminate\Database\Eloquent\Concerns\HasEvents;
 use Ramsey\Uuid\Uuid;
 use Tests\TestCase;

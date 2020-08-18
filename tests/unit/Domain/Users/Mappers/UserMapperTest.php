@@ -2,9 +2,9 @@
 
 namespace Tests\Domain\Users\Mappers;
 
-use App\Domain\Users\Contracts\Services\UserServiceInterface;
-use App\Domain\Users\Entities\UserEntity;
-use App\Domain\Users\Mappers\UserMapper;
+use App\Contracts\Users\Services\UserServiceInterface;
+use App\Entities\Users\UserEntity;
+use App\Mappers\Users\UserMapper;
 
 /**
  * Class UserMapperTest

@@ -2,13 +2,13 @@
 
 namespace Tests\Domain\Transactions\Services;
 
-use App\Application\Exceptions\UserNotFoundException;
-use App\Domain\Transactions\Contracts\Repositories\TransactionRepositoryInterface;
-use App\Domain\Transactions\Contracts\Services\TransferServiceInterface;
-use App\Domain\Transactions\Contracts\Services\ValidatorFactoryMethodInterface;
-use App\Domain\Transactions\Contracts\Services\ValidatorServiceInterface;
-use App\Domain\Transactions\Entities\TransactionEntity;
-use App\Domain\Transactions\Services\TransactionService;
+use App\Exceptions\UserNotFoundException;
+use App\Contracts\Transactions\Repositories\TransactionRepositoryInterface;
+use App\Contracts\Transactions\Services\TransferServiceInterface;
+use App\Contracts\Transactions\Services\ValidatorFactoryMethodInterface;
+use App\Contracts\Transactions\Services\ValidatorServiceInterface;
+use App\Entities\Transactions\TransactionEntity;
+use App\Services\Transactions\TransactionService;
 use Tests\TestCase;
 
 /**

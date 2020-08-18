@@ -2,12 +2,12 @@
 
 namespace Tests\Domain\Users\Services;
 
-use App\Domain\Users\Contracts\Mappers\BalanceMapperInterface;
-use App\Domain\Users\Contracts\Repositories\BalanceRepositoryInterface;
-use App\Domain\Users\Contracts\Services\UserServiceInterface;
-use App\Domain\Users\Entities\BalanceEntity;
-use App\Domain\Users\Entities\DepositEntity;
-use App\Domain\Users\Services\BalanceService;
+use App\Contracts\Users\Mappers\BalanceMapperInterface;
+use App\Contracts\Users\Repositories\BalanceRepositoryInterface;
+use App\Contracts\Users\Services\UserServiceInterface;
+use App\Entities\Users\BalanceEntity;
+use App\Entities\Users\DepositEntity;
+use App\Services\Users\BalanceService;
 use Tests\TestCase;
 
 class BalanceServiceTest extends TestCase

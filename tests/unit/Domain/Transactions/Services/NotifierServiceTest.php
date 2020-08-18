@@ -2,10 +2,10 @@
 
 namespace Tests\Domain\Transactions\Services;
 
-use App\Application\Exceptions\TransactionsEmailNotSendedException;
-use App\Domain\Transactions\Entities\TransactionEntity;
-use App\Domain\Transactions\Services\NotifierService;
-use App\Infrastructure\Contracts\Http\ClientServiceInterface;
+use App\Exceptions\TransactionsEmailNotSendedException;
+use App\Entities\Transactions\TransactionEntity;
+use App\Services\Transactions\NotifierService;
+use App\Contracts\Http\Services\ClientServiceInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use Tests\TestCase;

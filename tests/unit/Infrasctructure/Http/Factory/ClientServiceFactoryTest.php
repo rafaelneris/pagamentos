@@ -2,8 +2,8 @@
 
 namespace Tests\Infrastructure\Http\Factory;
 
-use App\Infrastructure\Contracts\Http\ClientServiceInterface;
-use App\Infrastructure\Http\Factories\ClientServiceFactory;
+use App\Contracts\Http\Services\ClientServiceInterface;
+use App\Services\Http\Factories\ClientServiceFactory;
 use Tests\TestCase;
 
 /**

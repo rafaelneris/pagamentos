@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Transactions\Services\Factories;
 
-use App\Domain\Transactions\Contracts\Services\TransactionServiceInterface;
-use App\Domain\Transactions\Services\Factories\TransactionServiceFactory;
+use App\Contracts\Transactions\Services\TransactionServiceInterface;
+use App\Services\Transactions\Factories\TransactionServiceFactory;
 use Tests\TestCase;
 
 /**

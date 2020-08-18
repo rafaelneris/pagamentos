@@ -2,11 +2,11 @@
 
 namespace Tests\Domain\Transactions\Services\Factories;
 
-use App\Domain\Transactions\Contracts\Services\TransferServiceInterface;
-use App\Domain\Transactions\Contracts\Services\ValidatorServiceInterface;
-use App\Domain\Transactions\Entities\TransactionEntity;
-use App\Domain\Transactions\Services\Factories\TransferServiceFactory;
-use App\Domain\Transactions\Services\Factories\ValidatorServiceFactoryMethod;
+use App\Contracts\Transactions\Services\TransferServiceInterface;
+use App\Contracts\Transactions\Services\ValidatorServiceInterface;
+use App\Entities\Transactions\TransactionEntity;
+use App\Services\Transactions\Factories\TransferServiceFactory;
+use App\Services\Transactions\Factories\ValidatorServiceFactoryMethod;
 use Tests\TestCase;
 
 /**

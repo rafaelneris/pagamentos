@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Transactions\Services\Factories;
 
-use App\Domain\Transactions\Contracts\Services\AuthorizerServiceInterface;
-use App\Domain\Transactions\Services\Factories\AuthorizerServiceFactory;
+use App\Contracts\Transactions\Services\AuthorizerServiceInterface;
+use App\Services\Transactions\Factories\AuthorizerServiceFactory;
 use Tests\TestCase;
 
 /**

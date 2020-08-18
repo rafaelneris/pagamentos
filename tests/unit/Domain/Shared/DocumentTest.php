@@ -2,7 +2,7 @@
 
 namespace Tests\Domain\Shared;
 
-use App\Application\Exceptions\InvalidDocumentException;
+use App\Exceptions\InvalidDocumentException;
 use App\Domain\Shared\ValueObjects\Document;
 use Tests\TestCase;
 

@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Transactions\Repositories\Factories;
 
-use App\Domain\Transactions\Contracts\Repositories\TransactionRepositoryInterface;
-use App\Domain\Transactions\Repositories\Factories\TransactionRepositoryFactory;
+use App\Contracts\Transactions\Repositories\TransactionRepositoryInterface;
+use App\Repositories\Transactions\Factories\TransactionRepositoryFactory;
 use Tests\TestCase;
 
 /**

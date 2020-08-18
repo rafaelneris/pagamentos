@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Users\Repositories\Factories;
 
-use App\Domain\Users\Contracts\Repositories\UserRepositoryInterface;
-use App\Domain\Users\Repositories\Factories\UserRepositoryFactory;
+use App\Contracts\Users\Repositories\UserRepositoryInterface;
+use App\Repositories\Users\Factories\UserRepositoryFactory;
 use Tests\TestCase;
 
 /**

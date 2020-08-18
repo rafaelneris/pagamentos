@@ -2,7 +2,7 @@
 
 namespace Tests\Application\Requests;
 
-use App\Application\Requests\DefaultRequest;
+use App\Http\Requests\DefaultRequest;
 
 /**
  * Class RequestConcret

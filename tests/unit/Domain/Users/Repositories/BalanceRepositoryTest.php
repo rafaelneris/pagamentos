@@ -2,10 +2,10 @@
 
 namespace Tests\Domain\Users\Repositories;
 
-use App\Domain\Users\Contracts\Mappers\BalanceMapperInterface;
-use App\Domain\Users\Entities\BalanceEntity;
-use App\Domain\Users\Repositories\BalanceRepository;
-use App\Infrastructure\Models\UsersBalance;
+use App\Contracts\Users\Mappers\BalanceMapperInterface;
+use App\Entities\Users\BalanceEntity;
+use App\Repositories\Users\BalanceRepository;
+use App\Model\UsersBalance;
 use Illuminate\Database\Query\Builder;
 use Tests\TestCase;
 

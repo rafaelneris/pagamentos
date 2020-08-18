@@ -2,10 +2,10 @@
 
 namespace Tests\Domain\Users\Services;
 
-use App\Application\Exceptions\UserNotFoundException;
-use App\Domain\Users\Contracts\Repositories\UserRepositoryInterface;
-use App\Domain\Users\Entities\UserEntity;
-use App\Domain\Users\Services\UserService;
+use App\Exceptions\UserNotFoundException;
+use App\Contracts\Users\Repositories\UserRepositoryInterface;
+use App\Entities\Users\UserEntity;
+use App\Services\Users\UserService;
 use Tests\TestCase;
 
 /**

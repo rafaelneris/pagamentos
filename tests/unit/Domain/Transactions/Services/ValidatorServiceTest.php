@@ -2,14 +2,14 @@
 
 namespace Tests\Domain\Transactions\Services;
 
-use App\Application\Exceptions\NoFundsException;
-use App\Application\Exceptions\PayerEqualsPayeeException;
-use App\Application\Exceptions\StoreTransferException;
-use App\Domain\Transactions\Contracts\Services\TransactionServiceInterface;
-use App\Domain\Transactions\Entities\TransactionEntity;
-use App\Domain\Transactions\Services\ValidatorService;
-use App\Domain\Users\Contracts\Services\BalanceServiceInterface;
-use App\Domain\Users\Contracts\Services\UserServiceInterface;
+use App\Exceptions\NoFundsException;
+use App\Exceptions\PayerEqualsPayeeException;
+use App\Exceptions\StoreTransferException;
+use App\Contracts\Transactions\Services\TransactionServiceInterface;
+use App\Entities\Transactions\TransactionEntity;
+use App\Services\Transactions\ValidatorService;
+use App\Contracts\Users\Services\BalanceServiceInterface;
+use App\Contracts\Users\Services\UserServiceInterface;
 use Tests\TestCase;
 
 class ValidatorServiceTest extends TestCase

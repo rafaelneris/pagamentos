@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Domain\Transactions\Entities;
 
-use App\Domain\Transactions\Entities\TransactionEntity;
+use App\Entities\Transactions\TransactionEntity;
 use Tests\TestCase;
 
 /**
@@ -12,7 +12,7 @@ use Tests\TestCase;
  */
 class TransactionEntityTest extends TestCase
 {
-    /** @var \App\Domain\Transactions\Entities\TransactionEntity|\Illuminate\Contracts\Foundation\Application|mixed */
+    /** @var \App\Entities\Transactions\TransactionEntity|\Illuminate\Contracts\Foundation\Application|mixed */
     private TransactionEntity $entity;
 
     public function setUp(): void

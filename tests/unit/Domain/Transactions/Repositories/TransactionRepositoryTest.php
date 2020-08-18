@@ -2,10 +2,10 @@
 
 namespace Tests\Domain\Transactions\Repositories;
 
-use App\Domain\Transactions\Contracts\Mappers\TransactionMapperInterface;
-use App\Domain\Transactions\Entities\TransactionEntity;
-use App\Domain\Transactions\Repositories\TransactionRepository;
-use App\Infrastructure\Models\Transactions;
+use App\Contracts\Transactions\Mappers\TransactionMapperInterface;
+use App\Entities\Transactions\TransactionEntity;
+use App\Repositories\Transactions\TransactionRepository;
+use App\Model\Transactions;
 use Illuminate\Database\Query\Builder;
 use Ramsey\Uuid\Uuid;
 

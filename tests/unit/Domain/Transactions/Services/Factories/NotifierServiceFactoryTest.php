@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Transactions\Services\Factories;
 
-use App\Domain\Transactions\Contracts\Services\NotifierServiceInterface;
-use App\Domain\Transactions\Services\Factories\NotifierServiceFactory;
+use App\Contracts\Transactions\Services\NotifierServiceInterface;
+use App\Services\Transactions\Factories\NotifierServiceFactory;
 use Tests\TestCase;
 
 class NotifierServiceFactoryTest extends TestCase

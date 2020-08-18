@@ -2,9 +2,9 @@
 
 namespace Tests\Domain\Users\Mappers;
 
-use App\Domain\Users\Entities\BalanceEntity;
-use App\Domain\Users\Entities\DepositEntity;
-use App\Domain\Users\Mappers\DepositMapper;
+use App\Entities\Users\BalanceEntity;
+use App\Entities\Users\DepositEntity;
+use App\Mappers\Users\DepositMapper;
 use Tests\TestCase;
 
 /**

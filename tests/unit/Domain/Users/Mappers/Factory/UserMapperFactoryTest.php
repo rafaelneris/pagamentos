@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Users\Mappers\Factory;
 
-use App\Domain\Users\Contracts\Mappers\UserMapperInterface;
-use App\Domain\Users\Mappers\Factories\UserMapperFactory;
+use App\Contracts\Users\Mappers\UserMapperInterface;
+use App\Mappers\Users\Factories\UserMapperFactory;
 use Tests\TestCase;
 
 class UserMapperFactoryTest extends TestCase

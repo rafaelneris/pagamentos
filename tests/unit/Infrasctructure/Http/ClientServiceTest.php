@@ -2,7 +2,7 @@
 
 namespace Tests\Infrasctucture\Http;
 
-use App\Infrastructure\Http\ClientService;
+use App\Services\Http\ClientService;
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
 use Tests\TestCase;

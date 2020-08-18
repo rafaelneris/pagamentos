@@ -2,7 +2,7 @@
 
 namespace Tests\Domain\Shared;
 
-use App\Application\Exceptions\InvalidEmailException;
+use App\Exceptions\InvalidEmailException;
 use App\Domain\Shared\ValueObjects\Email;
 use Tests\TestCase;
 

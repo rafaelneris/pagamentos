@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Users\Mappers\Factory;
 
-use App\Domain\Users\Contracts\Mappers\DepositMapperInterface;
-use App\Domain\Users\Mappers\Factories\DepositMapperFactory;
+use App\Contracts\Users\Mappers\DepositMapperInterface;
+use App\Mappers\Users\Factories\DepositMapperFactory;
 use Tests\TestCase;
 
 /**

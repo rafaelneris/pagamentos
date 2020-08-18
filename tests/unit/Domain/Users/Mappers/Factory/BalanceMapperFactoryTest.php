@@ -2,8 +2,8 @@
 
 namespace Tests\Domain\Users\Mappers\Factory;
 
-use App\Domain\Users\Contracts\Mappers\BalanceMapperInterface;
-use App\Domain\Users\Mappers\Factories\BalanceMapperFactory;
+use App\Contracts\Users\Mappers\BalanceMapperInterface;
+use App\Mappers\Users\Factories\BalanceMapperFactory;
 
 /**
  * Class BalanceMapperFactoryTest

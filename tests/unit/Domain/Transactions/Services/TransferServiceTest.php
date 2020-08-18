@@ -2,14 +2,14 @@
 
 namespace Tests\Domain\Transactions\Services;
 
-use App\Domain\Transactions\Contracts\Services\AuthorizerServiceInterface;
-use App\Domain\Transactions\Contracts\Services\NotifierServiceInterface;
-use App\Domain\Transactions\Entities\TransactionEntity;
-use App\Domain\Transactions\Services\TransferService;
-use App\Domain\Users\Contracts\Mappers\DepositMapperInterface;
-use App\Domain\Users\Contracts\Services\BalanceServiceInterface;
-use App\Domain\Users\Entities\BalanceEntity;
-use App\Domain\Users\Entities\DepositEntity;
+use App\Contracts\Transactions\Services\AuthorizerServiceInterface;
+use App\Contracts\Transactions\Services\NotifierServiceInterface;
+use App\Entities\Transactions\TransactionEntity;
+use App\Services\Transactions\TransferService;
+use App\Contracts\Users\Mappers\DepositMapperInterface;
+use App\Contracts\Users\Services\BalanceServiceInterface;
+use App\Entities\Users\BalanceEntity;
+use App\Entities\Users\DepositEntity;
 use Tests\TestCase;
 
 class TransferServiceTest extends TestCase
